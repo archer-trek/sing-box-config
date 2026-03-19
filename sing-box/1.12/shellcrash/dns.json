@@ -45,7 +45,8 @@
       },
       {
         "domain_suffix": [
-          "sensorsdata.cn"
+          "sensorsdata.cn",
+          "codexzh.com"
         ],
         "server": "dns_direct"
       },
