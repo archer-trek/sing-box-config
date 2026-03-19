@@ -39,7 +39,8 @@
       },
       {
         "domain_suffix": [
-          "sensorsdata.cn"
+          "sensorsdata.cn",
+          "codexzh.com"
         ],
         "outbound": "直连"
       },
