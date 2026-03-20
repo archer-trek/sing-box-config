@@ -1,7 +1,7 @@
 {
   "outbounds": [
     {
-      "tag": "代理",
+      "tag": "默认策略",
       "type": "selector",
       "outbounds": [
         "香港节点",
@@ -9,23 +9,12 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "土耳其节点",
-        "马来西亚节点",
         "自建节点",
         "ALL",
+        "手选节点",
         "直连"
       ],
       "default": "香港节点",
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "默认策略",
-      "type": "selector",
-      "outbounds": [
-        "代理",
-        "直连"
-      ],
-      "default": "代理",
       "interrupt_exist_connections": false
     },
     {
@@ -37,10 +26,9 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "土耳其节点",
-        "马来西亚节点",
         "自建节点",
         "ALL",
+        "手选节点",
         "直连"
       ],
       "default": "ALL",
@@ -55,15 +43,14 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "土耳其节点",
-        "马来西亚节点",
-        "自建节点"
+        "自建节点",
+        "手选节点"
       ],
       "default": "台湾节点",
       "interrupt_exist_connections": false
     },
     {
-      "tag": "奈飞",
+      "tag": "Netflix",
       "type": "selector",
       "outbounds": [
         "香港节点",
@@ -71,15 +58,14 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "土耳其节点",
-        "马来西亚节点",
-        "自建节点"
+        "自建节点",
+        "手选节点"
       ],
       "default": "香港节点",
       "interrupt_exist_connections": false
     },
     {
-      "tag": "迪士尼",
+      "tag": "YouTube",
       "type": "selector",
       "outbounds": [
         "香港节点",
@@ -87,9 +73,8 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "土耳其节点",
-        "马来西亚节点",
-        "自建节点"
+        "自建节点",
+        "手选节点"
       ],
       "default": "香港节点",
       "interrupt_exist_connections": false
@@ -97,62 +82,6 @@
     {
       "tag": "直连",
       "type": "direct"
-    },
-    {
-      "tag": "香港节点",
-      "type": "urltest",
-      "outbounds": [
-        "{(?i)港|hk|hongkong|hong kong}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "台湾节点",
-      "type": "urltest",
-      "outbounds": [
-        "{(?i)台|tw|taiwan}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "日本节点",
-      "type": "urltest",
-      "outbounds": [
-        "{(?i)日本|jp|japan}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "新加坡节点",
-      "type": "urltest",
-      "outbounds": [
-        "{(?i)新|sg|singapore}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "美国节点",
-      "type": "urltest",
-      "outbounds": [
-        "{(?i)美|us|unitedstates|united states}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "土耳其节点",
-      "type": "urltest",
-      "outbounds": [
-        "{土耳其}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "马来西亚节点",
-      "type": "urltest",
-      "outbounds": [
-        "{马来西亚}"
-      ],
-      "interrupt_exist_connections": false
     },
     {
       "tag": "自建节点",
@@ -167,6 +96,54 @@
       "type": "urltest",
       "outbounds": [
         "{.*}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "手选节点",
+      "type": "selector",
+      "outbounds": [
+        "{.*}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "香港节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)World-.*(港|香港|hk|hongkong|hong kong)}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "台湾节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)World-.*(台|台湾|tw|taiwan)}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "日本节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)World-.*(日本|jp|japan)}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "新加坡节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)World-.*(新加坡|新|sg|singapore)}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "美国节点",
+      "type": "urltest",
+      "outbounds": [
+        "{(?i)World-.*(美国|美|us|unitedstates|united states)}"
       ],
       "interrupt_exist_connections": false
     }
@@ -239,13 +216,13 @@
           "netflix",
           "netflixip"
         ],
-        "outbound": "奈飞"
+        "outbound": "Netflix"
       },
       {
         "rule_set": [
-          "disney"
+          "youtube"
         ],
-        "outbound": "迪士尼"
+        "outbound": "YouTube"
       }
     ],
     "rule_set": [
@@ -298,10 +275,10 @@
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.json"
       },
       {
-        "tag": "disney",
+        "tag": "youtube",
         "type": "remote",
         "download_detour": "ALL",
-        "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/disney.json"
+        "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/youtube.json"
       }
     ],
     "default_domain_resolver": {
