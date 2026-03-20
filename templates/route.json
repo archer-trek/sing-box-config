@@ -67,13 +67,13 @@
           "netflix",
           "netflixip"
         ],
-        "outbound": "奈飞"
+        "outbound": "Netflix"
       },
       {
         "rule_set": [
-          "disney"
+          "youtube"
         ],
-        "outbound": "迪士尼"
+        "outbound": "YouTube"
       }
     ],
     "rule_set": [
@@ -126,10 +126,10 @@
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflixip.json"
       },
       {
-        "tag": "disney",
+        "tag": "youtube",
         "type": "remote",
         "download_detour": "ALL",
-        "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/disney.json"
+        "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/youtube.json"
       }
     ],
     "default_domain_resolver": {

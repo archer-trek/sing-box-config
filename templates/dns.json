@@ -8,6 +8,12 @@
         "detour": "DNS"
       },
       {
+        "tag": "dns_ai",
+        "type": "https",
+        "server": "1.1.1.1",
+        "detour": "AI"
+      },
+      {
         "tag": "dns_direct",
         "type": "https",
         "server": "doh.pub",
@@ -55,6 +61,12 @@
           "cn"
         ],
         "server": "dns_direct"
+      },
+      {
+        "rule_set": [
+          "ai"
+        ],
+        "server": "dns_ai"
       },
       {
         "rule_set": [
