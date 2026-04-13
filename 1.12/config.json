@@ -120,9 +120,10 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "自建节点",
+        "My 节点",
+        "World 节点",
+        "良心云节点",
         "ALL",
-        "手选节点",
         "直连"
       ],
       "default": "香港节点",
@@ -137,9 +138,10 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "自建节点",
+        "My 节点",
+        "World 节点",
+        "良心云节点",
         "ALL",
-        "手选节点",
         "直连"
       ],
       "default": "ALL",
@@ -154,8 +156,9 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "自建节点",
-        "手选节点"
+        "My 节点",
+        "World 节点",
+        "良心云节点"
       ],
       "default": "台湾节点",
       "interrupt_exist_connections": false
@@ -169,8 +172,9 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "自建节点",
-        "手选节点"
+        "My 节点",
+        "World 节点",
+        "良心云节点"
       ],
       "default": "香港节点",
       "interrupt_exist_connections": false
@@ -184,8 +188,9 @@
         "日本节点",
         "新加坡节点",
         "美国节点",
-        "自建节点",
-        "手选节点"
+        "My 节点",
+        "World 节点",
+        "良心云节点"
       ],
       "default": "香港节点",
       "interrupt_exist_connections": false
@@ -195,7 +200,7 @@
       "type": "direct"
     },
     {
-      "tag": "自建节点",
+      "tag": "My 节点",
       "type": "selector",
       "outbounds": [
         "{My-}"
@@ -203,16 +208,24 @@
       "interrupt_exist_connections": false
     },
     {
-      "tag": "ALL",
-      "type": "urltest",
+      "tag": "World 节点",
+      "type": "selector",
       "outbounds": [
-        "{.*}"
+        "{World-}"
       ],
       "interrupt_exist_connections": false
     },
     {
-      "tag": "手选节点",
+      "tag": "良心云节点",
       "type": "selector",
+      "outbounds": [
+        "{良心云-}"
+      ],
+      "interrupt_exist_connections": false
+    },
+    {
+      "tag": "ALL",
+      "type": "urltest",
       "outbounds": [
         "{.*}"
       ],
