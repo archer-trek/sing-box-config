@@ -164,7 +164,7 @@
   "route": {
     "rules": [
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "outbound": "直连"
       },
       {
@@ -177,6 +177,11 @@
         "ip_cidr": [
           "104.223.57.43"
         ],
+        "outbound": "直连"
+      },
+      {
+        "network": "udp",
+        "port": 123,
         "outbound": "直连"
       },
       {
@@ -199,14 +204,10 @@
         "outbound": "直连"
       },
       {
-        "network": "udp",
-        "port": 123,
-        "outbound": "直连"
-      },
-      {
         "domain_suffix": [
           "sensorsdata.cn",
-          "codexzh.com"
+          "codexzh.com",
+          "courier.push.apple.com"
         ],
         "outbound": "直连"
       },
@@ -228,6 +229,10 @@
           "cn"
         ],
         "outbound": "直连"
+      },
+      {
+        "protocol": "quic",
+        "action": "reject"
       },
       {
         "rule_set": [

@@ -44,7 +44,7 @@
         "server": "dns_direct"
       },
       {
-        "domain_suffix": ["sensorsdata.cn", "codexzh.com"],
+        "domain_suffix": ["sensorsdata.cn", "codexzh.com", "courier.push.apple.com"],
         "server": "dns_direct"
       },
       {
