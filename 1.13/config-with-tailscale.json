@@ -50,7 +50,7 @@
         "rcode": "NXDOMAIN"
       },
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "server": "dns_direct"
       },
       {
@@ -68,7 +68,8 @@
       {
         "domain_suffix": [
           "sensorsdata.cn",
-          "codexzh.com"
+          "codexzh.com",
+          "courier.push.apple.com"
         ],
         "server": "dns_direct"
       },
@@ -102,6 +103,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "mtu": 1500,
       "interface_name": "sing-box-utun",
       "address": [
         "192.168.255.1/30"
@@ -281,7 +283,7 @@
         "outbound": "ts-ep"
       },
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "outbound": "直连"
       },
       {
@@ -294,6 +296,11 @@
         "ip_cidr": [
           "104.223.57.43"
         ],
+        "outbound": "直连"
+      },
+      {
+        "network": "udp",
+        "port": 123,
         "outbound": "直连"
       },
       {
@@ -316,14 +323,10 @@
         "outbound": "直连"
       },
       {
-        "network": "udp",
-        "port": 123,
-        "outbound": "直连"
-      },
-      {
         "domain_suffix": [
           "sensorsdata.cn",
-          "codexzh.com"
+          "codexzh.com",
+          "courier.push.apple.com"
         ],
         "outbound": "直连"
       },
@@ -345,6 +348,10 @@
           "cn"
         ],
         "outbound": "直连"
+      },
+      {
+        "protocol": "quic",
+        "action": "reject"
       },
       {
         "rule_set": [

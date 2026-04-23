@@ -34,7 +34,7 @@
         "rcode": "NXDOMAIN"
       },
       {
-        "clash_mode": "Direct",
+        "clash_mode": "direct",
         "server": "dns_direct"
       },
       {
@@ -52,7 +52,8 @@
       {
         "domain_suffix": [
           "sensorsdata.cn",
-          "codexzh.com"
+          "codexzh.com",
+          "courier.push.apple.com"
         ],
         "server": "dns_direct"
       },

@@ -3,6 +3,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
+      "mtu": 1500,
       "interface_name": "sing-box-utun",
       "address": ["192.168.255.1/30"],
       "auto_route": true,
