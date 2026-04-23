@@ -27,9 +27,7 @@
     ],
     "rules": [
       {
-        "domain_keyword": [
-          "_dns-sd._udp"
-        ],
+        "domain_keyword": ["_dns-sd._udp"],
         "action": "predefined",
         "rcode": "NXDOMAIN"
       },
@@ -38,40 +36,27 @@
         "server": "dns_direct"
       },
       {
-        "wifi_ssid": [
-          "sanzhixiaoxiong"
-        ],
+        "wifi_ssid": ["sanzhixiaoxiong"],
         "server": "dns_direct"
       },
       {
-        "domain": [
-          "stun.easyvoip.com"
-        ],
+        "domain_keyword": ["stun."],
         "server": "dns_direct"
       },
       {
-        "domain_suffix": [
-          "sensorsdata.cn",
-          "codexzh.com"
-        ],
+        "domain_suffix": ["sensorsdata.cn", "codexzh.com"],
         "server": "dns_direct"
       },
       {
-        "rule_set": [
-          "cn"
-        ],
+        "rule_set": ["cn"],
         "server": "dns_direct"
       },
       {
-        "rule_set": [
-          "ai"
-        ],
+        "rule_set": ["ai"],
         "server": "dns_ai"
       },
       {
-        "rule_set": [
-          "proxy"
-        ],
+        "rule_set": ["proxy"],
         "server": "dns_proxy"
       }
     ],

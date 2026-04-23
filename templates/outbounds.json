@@ -91,73 +91,55 @@
     {
       "tag": "My 节点",
       "type": "selector",
-      "outbounds": [
-        "{My-}"
-      ],
+      "outbounds": ["{My-}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "World 节点",
       "type": "selector",
-      "outbounds": [
-        "{World-}"
-      ],
+      "outbounds": ["{World-}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "良心云节点",
       "type": "selector",
-      "outbounds": [
-        "{良心云-}"
-      ],
+      "outbounds": ["{良心云-}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "ALL",
       "type": "urltest",
-      "outbounds": [
-        "{.*}"
-      ],
+      "outbounds": ["{.*}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "香港节点",
       "type": "urltest",
-      "outbounds": [
-        "{(?i)World-.*(港|香港|hk|hongkong|hong kong)}"
-      ],
+      "outbounds": ["{(?i)World-.*(港|香港|hk|hongkong|hong kong)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "台湾节点",
       "type": "urltest",
-      "outbounds": [
-        "{(?i)World-.*(台|台湾|tw|taiwan)}"
-      ],
+      "outbounds": ["{(?i)World-.*(台|台湾|tw|taiwan)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "日本节点",
       "type": "urltest",
-      "outbounds": [
-        "{(?i)World-.*(日本|jp|japan)}"
-      ],
+      "outbounds": ["{(?i)World-.*(日本|jp|japan)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "新加坡节点",
       "type": "urltest",
-      "outbounds": [
-        "{(?i)World-.*(新加坡|新|sg|singapore)}"
-      ],
+      "outbounds": ["{(?i)World-.*(新加坡|新|sg|singapore)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "美国节点",
       "type": "urltest",
-      "outbounds": [
-        "{(?i)World-.*(美国|美|us|unitedstates|united states)}"
-      ],
+      "outbounds": ["{(?i)World-.*(美国|美|us|unitedstates|united states)}"],
       "interrupt_exist_connections": false
     }
   ]

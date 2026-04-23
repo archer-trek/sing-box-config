@@ -2,6 +2,18 @@
   "route": {
     "rules": [
       {
+        "clash_mode": "direct",
+        "outbound": "直连"
+      },
+      {
+        "wifi_ssid": ["sanzhixiaoxiong"],
+        "outbound": "直连"
+      },
+      {
+        "ip_cidr": ["104.223.57.43"],
+        "outbound": "直连"
+      },
+      {
         "action": "sniff"
       },
       {
@@ -9,70 +21,48 @@
         "action": "hijack-dns"
       },
       {
-        "clash_mode": "direct",
+        "protocol": "stun",
         "outbound": "直连"
       },
       {
-        "wifi_ssid": [
-          "sanzhixiaoxiong"
-        ],
+        "protocol": "bittorrent",
         "outbound": "直连"
       },
       {
-        "ip_cidr": [
-          "104.223.57.43"
-        ],
+        "protocol": "ntp",
         "outbound": "直连"
       },
       {
-        "rule_set": [
-          "private",
-          "privateip"
-        ],
+        "network": "udp",
+        "port": 123,
         "outbound": "直连"
       },
       {
-        "domain": [
-          "stun.easyvoip.com"
-        ],
+        "domain_suffix": ["sensorsdata.cn", "codexzh.com"],
         "outbound": "直连"
       },
       {
-        "domain_suffix": [
-          "sensorsdata.cn",
-          "codexzh.com"
-        ],
+        "rule_set": ["private", "privateip"],
         "outbound": "直连"
       },
       {
-        "rule_set": [
-          "cnip"
-        ],
+        "rule_set": ["cnip"],
         "outbound": "直连"
       },
       {
-        "rule_set": [
-          "cn"
-        ],
+        "rule_set": ["cn"],
         "outbound": "直连"
       },
       {
-        "rule_set": [
-          "ai"
-        ],
+        "rule_set": ["ai"],
         "outbound": "AI"
       },
       {
-        "rule_set": [
-          "netflix",
-          "netflixip"
-        ],
+        "rule_set": ["netflix", "netflixip"],
         "outbound": "Netflix"
       },
       {
-        "rule_set": [
-          "youtube"
-        ],
+        "rule_set": ["youtube"],
         "outbound": "YouTube"
       }
     ],
