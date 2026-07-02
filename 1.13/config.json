@@ -70,7 +70,8 @@
           "sensorsdata.cn",
           "codexzh.com",
           "courier.push.apple.com",
-          "404888.xyz"
+          "404888.xyz",
+          "opencode.ai"
         ],
         "server": "dns_direct"
       },
@@ -322,7 +323,8 @@
           "sensorsdata.cn",
           "codexzh.com",
           "courier.push.apple.com",
-          "404888.xyz"
+          "404888.xyz",
+          "opencode.ai"
         ],
         "outbound": "直连"
       },
