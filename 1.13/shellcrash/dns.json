@@ -52,9 +52,7 @@
       {
         "domain_suffix": [
           "sensorsdata.cn",
-          "codexzh.com",
           "courier.push.apple.com",
-          "404888.xyz",
           "opencode.ai"
         ],
         "server": "dns_direct"

@@ -48,25 +48,29 @@ main.py              # Generator: deep-merge templates → write output JSON
 | `deep_merge(base, override)` | Recursively merge two dicts — override keys win |
 | `merge(templates, overwrite, target)` | Load and deep-merge a list of template files, apply optional overwrite callbacks, write to target |
 | `_replace_rule_set_url(result)` | Rewrite rule-set URLs: `/sing-box-ruleset/` → `/sing-box-ruleset-compatible/` |
+| `_fill_direct_domains(result)` | Inject `DIRECT_DOMAIN_SUFFIX` into the empty `domain_suffix: []` anchor rules in route/dns; raises if no anchor is found |
 | `_insert_custom_rules(result, rules)` | Prepend custom route rules to `result["route"]["rules"]` |
+
+The direct-connect domain list lives in a single place: the `DIRECT_DOMAIN_SUFFIX` constant in `main.py`. The templates keep empty `domain_suffix: []` anchor rules (route: `outbound: 直连`; dns: `server: dns_direct`) that `_fill_direct_domains` fills at generation time — do not hand-edit those lists in templates.
 
 ### Generation pipeline
 
 ```
 config.json:
   log.json → experimental.json → dns.json → inbounds.json → outbounds.json → route.json
-  overwrite: _replace_rule_set_url
+  overwrite: _replace_rule_set_url + _fill_direct_domains
 
 config-with-tailscale.json:
   (same as above) + endpoints.json
-  overwrite: _replace_rule_set_url + prepend {ip_cidr: [192.168.5.0/24], outbound: ts-ep}
+  overwrite: _replace_rule_set_url + _fill_direct_domains + prepend {ip_cidr: [192.168.5.0/24], outbound: ts-ep}
 
 shellcrash/config.json:
   outbounds.json → route.json
-  overwrite: _replace_rule_set_url
+  overwrite: _replace_rule_set_url + _fill_direct_domains
 
 shellcrash/dns.json:
-  dns.json only (no overwrite)
+  dns.json only
+  overwrite: _fill_direct_domains
 ```
 
 ### Adding a new overwrite callback
@@ -107,6 +111,7 @@ python3 -c "import json; d=json.load(open('templates/route.json')); print(len(d[
 | Goal | Start here |
 |---|---|
 | DNS changes (servers, rules, fake-ip) | `templates/dns.json` |
+| Direct-connect domain list | `DIRECT_DOMAIN_SUFFIX` in `main.py` |
 | Inbound changes (ports, sniffing) | `templates/inbounds.json` |
 | Outbound changes (nodes, selectors, groups) | `templates/outbounds.json` |
 | Routing changes (rules, rule-sets) | `templates/route.json` |

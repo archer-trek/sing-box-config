@@ -2,6 +2,14 @@ import json
 import os
 from typing import Any, Dict, List
 
+# 直连域名列表（唯一来源）：同时注入到 route 规则和 dns 规则中，
+# 避免在 templates/route.json 和 templates/dns.json 两处重复维护。
+DIRECT_DOMAIN_SUFFIX = [
+    "sensorsdata.cn",
+    "courier.push.apple.com",
+    "opencode.ai",
+]
+
 
 def load_json(file_path: str) -> Dict[Any, Any]:
     """加载JSON文件"""
@@ -62,6 +70,32 @@ def _replace_rule_set_url(result: Dict[Any, Any]):
         rule_set["url"] = rule_set["url"].replace("/sing-box-ruleset/", "/sing-box-ruleset-compatible/")
 
 
+def _fill_direct_domains(result: Dict[Any, Any]):
+    """把 DIRECT_DOMAIN_SUFFIX 注入到 route/dns 中的直连锚点规则。
+
+    锚点：route 中 outbound=直连 且 domain_suffix 为空的规则，
+    以及 dns 中 server=dns_direct 且 domain_suffix 为空的规则。
+    """
+    injected = False
+
+    route = result.get("route")
+    if route:
+        for rule in route.get("rules", []):
+            if rule.get("outbound") == "直连" and rule.get("domain_suffix") == []:
+                rule["domain_suffix"] = list(DIRECT_DOMAIN_SUFFIX)
+                injected = True
+
+    dns = result.get("dns")
+    if dns:
+        for rule in dns.get("rules", []):
+            if rule.get("server") == "dns_direct" and rule.get("domain_suffix") == []:
+                rule["domain_suffix"] = list(DIRECT_DOMAIN_SUFFIX)
+                injected = True
+
+    if not injected:
+        raise ValueError("未找到直连域名锚点规则（domain_suffix: []），请检查模板")
+
+
 if __name__ == "__main__":
     merge(
         [
@@ -72,7 +106,7 @@ if __name__ == "__main__":
             "templates/outbounds.json",
             "templates/route.json",
         ],
-        [_replace_rule_set_url],
+        [_replace_rule_set_url, _fill_direct_domains],
         "1.13/config.json",
     )
 
@@ -88,6 +122,7 @@ if __name__ == "__main__":
         ],
         [
             _replace_rule_set_url,
+            _fill_direct_domains,
             lambda r: _insert_custom_rules(
                 r,
                 [
@@ -105,8 +140,9 @@ if __name__ == "__main__":
         ],
         [
             _replace_rule_set_url,
+            _fill_direct_domains,
         ],
         "1.13/shellcrash/config.json",
     )
 
-    merge(["templates/dns.json"], None, "1.13/shellcrash/dns.json")
+    merge(["templates/dns.json"], [_fill_direct_domains], "1.13/shellcrash/dns.json")
