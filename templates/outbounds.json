@@ -115,31 +115,31 @@
     {
       "tag": "香港节点",
       "type": "urltest",
-      "outbounds": ["{(?i)World-.*(港|香港|hk|hongkong|hong kong)}"],
+      "outbounds": ["{(?i)(港|香港|hk|hongkong|hong kong)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "台湾节点",
       "type": "urltest",
-      "outbounds": ["{(?i)World-.*(台|台湾|tw|taiwan)}"],
+      "outbounds": ["{(?i)(台|台湾|tw|taiwan)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "日本节点",
       "type": "urltest",
-      "outbounds": ["{(?i)World-.*(日本|jp|japan)}"],
+      "outbounds": ["{(?i)(日本|jp|japan)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "新加坡节点",
       "type": "urltest",
-      "outbounds": ["{(?i)World-.*(新加坡|新|sg|singapore)}"],
+      "outbounds": ["{(?i)(新加坡|新|sg|singapore)}"],
       "interrupt_exist_connections": false
     },
     {
       "tag": "美国节点",
       "type": "urltest",
-      "outbounds": ["{(?i)World-.*(美国|美|us|unitedstates|united states)}"],
+      "outbounds": ["{(?i)(美国|美|\\bus\\b|unitedstates|united states)}"],
       "interrupt_exist_connections": false
     }
   ]
