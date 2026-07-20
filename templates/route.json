@@ -38,7 +38,7 @@
         "outbound": "直连"
       },
       {
-        "domain_suffix": ["sensorsdata.cn", "codexzh.com", "courier.push.apple.com", "404888.xyz", "opencode.ai"],
+        "domain_suffix": [],
         "outbound": "直连"
       },
       {
