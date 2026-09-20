@@ -3,7 +3,6 @@
     {
       "type": "tailscale",
       "tag": "ts-ep",
-      "auth_key": "",
       "accept_routes": true
     }
   ]

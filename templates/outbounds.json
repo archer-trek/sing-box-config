@@ -10,7 +10,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点",
         "ALL",
         "直连"
@@ -28,12 +27,11 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点",
         "ALL",
         "直连"
       ],
-      "default": "ALL",
+      "default": "美国节点",
       "interrupt_exist_connections": false
     },
     {
@@ -46,10 +44,9 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
-      "default": "台湾节点",
+      "default": "My 节点",
       "interrupt_exist_connections": false
     },
     {
@@ -62,7 +59,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
       "default": "香港节点",
@@ -78,7 +74,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
       "default": "香港节点",
@@ -92,12 +87,6 @@
       "tag": "My 节点",
       "type": "selector",
       "outbounds": ["{My-}"],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "World 节点",
-      "type": "selector",
-      "outbounds": ["{World-}"],
       "interrupt_exist_connections": false
     },
     {
