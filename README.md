@@ -2,7 +2,7 @@
 
 Template-based `sing-box` configuration generator.
 
-This repo keeps editable source fragments in `templates/` and generates ready-to-use JSON files in `1.13/` with `main.py`.
+This repo keeps editable source fragments in `templates/` and generates ready-to-use JSON files in `1.13/` and `1.14/` with `main.py`.
 
 ## Structure
 
@@ -18,6 +18,8 @@ This repo keeps editable source fragments in `templates/` and generates ready-to
 - `1.13/config-with-tailscale.json` - full generated config with Tailscale endpoint and extra custom route
 - `1.13/shellcrash/config.json` - generated outbound + route config for ShellCrash
 - `1.13/shellcrash/dns.json` - generated DNS config for ShellCrash
+- `1.14/config.json` - full generated config for sing-box 1.14
+- `1.14/config-with-tailscale.json` - full generated config for sing-box 1.14 with Tailscale endpoint
 
 ## How It Works
 
@@ -43,10 +45,26 @@ This repo keeps editable source fragments in `templates/` and generates ready-to
   - `templates/route.json`
 - `1.13/shellcrash/dns.json`
   - `templates/dns.json`
+- `1.14/config.json`
+  - `templates/log.json`
+  - `templates/experimental.json`
+  - `templates/dns.json`
+  - `templates/inbounds.json`
+  - `templates/outbounds.json`
+  - `templates/route.json`
+- `1.14/config-with-tailscale.json`
+  - `templates/log.json`
+  - `templates/experimental.json`
+  - `templates/dns.json`
+  - `templates/inbounds.json`
+  - `templates/outbounds.json`
+  - `templates/route.json`
+  - `templates/endpoints.json`
 
 During generation:
 
-- rule-set URLs are rewritten from `/sing-box-ruleset/` to `/sing-box-ruleset-compatible/`
+- For 1.13: rule-set URLs are rewritten from `/sing-box-ruleset/` to `/sing-box-ruleset-compatible/` (Rule-Set v4).
+- For 1.14: rule-set URLs keep native `/sing-box-ruleset/` (Rule-Set v5), `dns.independent_cache` is removed, and `http_clients` / `route.default_http_client` are explicitly configured.
 - `config-with-tailscale.json` prepends a custom route so `192.168.5.0/24` goes through outbound `ts-ep`
 
 ## Generate
@@ -62,6 +80,8 @@ python3 -m json.tool 1.13/config.json >/dev/null
 python3 -m json.tool 1.13/config-with-tailscale.json >/dev/null
 python3 -m json.tool 1.13/shellcrash/config.json >/dev/null
 python3 -m json.tool 1.13/shellcrash/dns.json >/dev/null
+python3 -m json.tool 1.14/config.json >/dev/null
+python3 -m json.tool 1.14/config-with-tailscale.json >/dev/null
 ```
 
 ## Typical Changes
@@ -73,10 +93,10 @@ python3 -m json.tool 1.13/shellcrash/dns.json >/dev/null
 - Update endpoint definitions in `templates/endpoints.json`
 - Update generation logic in `main.py`
 
-After changing source files, regenerate the outputs in `1.13/`.
+After changing source files, regenerate the outputs in `1.13/` and `1.14/`.
 
 ## Notes
 
 - Treat `templates/` and `main.py` as the source of truth
-- Avoid manually editing generated files in `1.13/`
+- Avoid manually editing generated files in `1.13/` or `1.14/`
 - Generated JSON uses UTF-8 and 2-space indentation

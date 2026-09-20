@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import os
 from typing import Any, Dict, List
@@ -95,6 +97,26 @@ def _fill_direct_domains(result: Dict[Any, Any]):
     if not injected:
         raise ValueError("未找到直连域名锚点规则（domain_suffix: []），请检查模板")
 
+def _adapt_for_1_14(result: Dict[Any, Any]):
+    """为 sing-box 1.14 适配配置：
+    1. 移除已废弃的 independent_cache 字段
+    2. 显式配置 http_clients 与 route.default_http_client
+    """
+    dns = result.get("dns")
+    if dns and "independent_cache" in dns:
+        del dns["independent_cache"]
+
+    result["http_clients"] = [
+        {
+            "tag": "default-client",
+            "detour": "默认策略",
+        }
+    ]
+    route = result.get("route")
+    if route:
+        route["default_http_client"] = "default-client"
+
+
 
 if __name__ == "__main__":
     merge(
@@ -146,3 +168,40 @@ if __name__ == "__main__":
     )
 
     merge(["templates/dns.json"], [_fill_direct_domains], "1.13/shellcrash/dns.json")
+
+    # 1.14 配置生成
+    merge(
+        [
+            "templates/log.json",
+            "templates/experimental.json",
+            "templates/dns.json",
+            "templates/inbounds.json",
+            "templates/outbounds.json",
+            "templates/route.json",
+        ],
+        [_fill_direct_domains, _adapt_for_1_14],
+        "1.14/config.json",
+    )
+
+    merge(
+        [
+            "templates/log.json",
+            "templates/experimental.json",
+            "templates/dns.json",
+            "templates/inbounds.json",
+            "templates/outbounds.json",
+            "templates/route.json",
+            "templates/endpoints.json",
+        ],
+        [
+            _fill_direct_domains,
+            _adapt_for_1_14,
+            lambda r: _insert_custom_rules(
+                r,
+                [
+                    {"ip_cidr": ["192.168.5.0/24"], "outbound": "ts-ep"},
+                ],
+            ),
+        ],
+        "1.14/config-with-tailscale.json",
+    )
