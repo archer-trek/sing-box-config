@@ -74,55 +74,46 @@
       {
         "tag": "private",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/private.json"
       },
       {
         "tag": "privateip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/privateip.json"
       },
       {
         "tag": "ai",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/ai.json"
       },
       {
         "tag": "proxy",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/proxy.json"
       },
       {
         "tag": "cnip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/cnip.json"
       },
       {
         "tag": "cn",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/cn.json"
       },
       {
         "tag": "netflix",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflix.json"
       },
       {
         "tag": "netflixip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/netflixip.json"
       },
       {
         "tag": "youtube",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset/youtube.json"
       }
     ],
