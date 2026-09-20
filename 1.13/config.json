@@ -123,7 +123,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点",
         "ALL",
         "直连"
@@ -141,12 +140,11 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点",
         "ALL",
         "直连"
       ],
-      "default": "ALL",
+      "default": "美国节点",
       "interrupt_exist_connections": false
     },
     {
@@ -159,10 +157,9 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
-      "default": "台湾节点",
+      "default": "My 节点",
       "interrupt_exist_connections": false
     },
     {
@@ -175,7 +172,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
       "default": "香港节点",
@@ -191,7 +187,6 @@
         "新加坡节点",
         "美国节点",
         "My 节点",
-        "World 节点",
         "良心云节点"
       ],
       "default": "香港节点",
@@ -206,14 +201,6 @@
       "type": "selector",
       "outbounds": [
         "{My-}"
-      ],
-      "interrupt_exist_connections": false
-    },
-    {
-      "tag": "World 节点",
-      "type": "selector",
-      "outbounds": [
-        "{World-}"
       ],
       "interrupt_exist_connections": false
     },
@@ -372,55 +359,46 @@
       {
         "tag": "private",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/private.json"
       },
       {
         "tag": "privateip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/privateip.json"
       },
       {
         "tag": "ai",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/ai.json"
       },
       {
         "tag": "proxy",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/proxy.json"
       },
       {
         "tag": "cnip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cnip.json"
       },
       {
         "tag": "cn",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/cn.json"
       },
       {
         "tag": "netflix",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflix.json"
       },
       {
         "tag": "netflixip",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/netflixip.json"
       },
       {
         "tag": "youtube",
         "type": "remote",
-        "download_detour": "ALL",
         "url": "https://github.com/DustinWin/ruleset_geodata/releases/download/sing-box-ruleset-compatible/youtube.json"
       }
     ],
