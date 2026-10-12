@@ -282,7 +282,7 @@
       {
         "ip_cidr": [
           "104.223.57.43",
-          "154.217.255.166"
+          "5.253.38.91"
         ],
         "outbound": "直连"
       },
@@ -330,6 +330,12 @@
           "cnip"
         ],
         "outbound": "直连"
+      },
+      {
+        "domain_suffix": [
+          "archer-trek.top"
+        ],
+        "outbound": "默认策略"
       },
       {
         "rule_set": [
@@ -409,7 +415,7 @@
       }
     ],
     "default_domain_resolver": {
-      "server": "dns_resolver",
+      "server": "dns_direct",
       "client_subnet": "114.114.114.114"
     },
     "final": "默认策略",
