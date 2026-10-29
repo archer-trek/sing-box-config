@@ -279,13 +279,6 @@
         "outbound": "直连"
       },
       {
-        "ip_cidr": [
-          "104.223.57.43",
-          "5.253.38.91"
-        ],
-        "outbound": "直连"
-      },
-      {
         "network": "udp",
         "port": 123,
         "outbound": "直连"
