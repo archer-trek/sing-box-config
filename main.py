@@ -12,6 +12,14 @@ DIRECT_DOMAIN_SUFFIX = [
     "opencode.ai",
 ]
 
+# Tailscale 流量网段（唯一来源）：CGNAT IPv4、Tailscale IPv6 ULA 与家庭子网，
+# 必须在 route 规则最前路由至 ts-ep，避免落入包含 100.64.0.0/10 的 privateip 规则集。
+TAILSCALE_ROUTE_CIDRS = [
+    "100.64.0.0/10",
+    "fd7a:115c:a1e0::/48",
+    "192.168.5.0/24",
+]
+
 
 def load_json(file_path: str) -> Dict[Any, Any]:
     """加载JSON文件"""
@@ -148,7 +156,7 @@ if __name__ == "__main__":
             lambda r: _insert_custom_rules(
                 r,
                 [
-                    {"ip_cidr": ["192.168.5.0/24"], "outbound": "ts-ep"},
+                    {"ip_cidr": list(TAILSCALE_ROUTE_CIDRS), "outbound": "ts-ep"},
                 ],
             ),
         ],
@@ -199,7 +207,7 @@ if __name__ == "__main__":
             lambda r: _insert_custom_rules(
                 r,
                 [
-                    {"ip_cidr": ["192.168.5.0/24"], "outbound": "ts-ep"},
+                    {"ip_cidr": list(TAILSCALE_ROUTE_CIDRS), "outbound": "ts-ep"},
                 ],
             ),
         ],

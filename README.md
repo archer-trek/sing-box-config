@@ -65,7 +65,7 @@ During generation:
 
 - For 1.13: rule-set URLs are rewritten from `/sing-box-ruleset/` to `/sing-box-ruleset-compatible/` (Rule-Set v4).
 - For 1.14: rule-set URLs keep native `/sing-box-ruleset/` (Rule-Set v5), `dns.independent_cache` is removed, and `http_clients` / `route.default_http_client` are explicitly configured.
-- `config-with-tailscale.json` prepends a custom route so `192.168.5.0/24` goes through outbound `ts-ep`
+- `config-with-tailscale.json` prepends a custom route so `100.64.0.0/10`, `fd7a:115c:a1e0::/48`, and `192.168.5.0/24` go through outbound `ts-ep`
 
 ## Generate
 
