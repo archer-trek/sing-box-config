@@ -66,7 +66,7 @@ config.json:
 
 config-with-tailscale.json:
   (same as above) + endpoints.json
-  overwrite: _replace_rule_set_url + _fill_direct_domains + prepend {ip_cidr: [192.168.5.0/24], outbound: ts-ep}
+  overwrite: _replace_rule_set_url + _fill_direct_domains + prepend {ip_cidr: [100.64.0.0/10, fd7a:115c:a1e0::/48, 192.168.5.0/24], outbound: ts-ep}
 
 shellcrash/config.json:
   outbounds.json → route.json
@@ -82,7 +82,7 @@ shellcrash/dns.json:
 
 1.14/config-with-tailscale.json:
   (same as above) + endpoints.json
-  overwrite: _fill_direct_domains + _adapt_for_1_14 + prepend {ip_cidr: [192.168.5.0/24], outbound: ts-ep}
+  overwrite: _fill_direct_domains + _adapt_for_1_14 + prepend {ip_cidr: [100.64.0.0/10, fd7a:115c:a1e0::/48, 192.168.5.0/24], outbound: ts-ep}
 ```
 
 ### Adding a new overwrite callback
